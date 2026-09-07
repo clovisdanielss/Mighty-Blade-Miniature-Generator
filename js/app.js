@@ -2,6 +2,7 @@
   'use strict';
 
   const MM_TO_PREVIEW = 3;
+  const FOLD_CLEARANCE = 2;
   const PAGE = { portrait: [210, 297], landscape: [297, 210] };
   const PRESETS = {
     tiny: { height: 16, base: 18 },
@@ -113,7 +114,7 @@
       const base = baseDiameter(creature);
       const tabHeight = base / 2;
       const standeeWidth = Math.max(artworkWidth, base) + gap;
-      const standeeHeight = creature.height * 2 + tabHeight * 2 + gap;
+      const standeeHeight = creature.height * 2 + tabHeight * 2 + FOLD_CLEARANCE * 2 + gap;
       for (let copy = 1; copy <= creature.quantity; copy += 1) {
         items.push({ type: 'standee', creature, copy, w: standeeWidth, h: standeeHeight, artworkWidth, base, tabHeight });
         items.push({ type: 'base', creature, copy, w: base + gap, h: base + gap, base });
@@ -166,10 +167,10 @@
 
     ctx.save(); ctx.scale(scale, scale); ctx.strokeStyle = '#888'; ctx.lineWidth = .25;
     ctx.beginPath(); ctx.moveTo(x, centerY); ctx.lineTo(x + w, centerY); ctx.stroke();
-    ctx.beginPath(); ctx.arc(centerX, y + tabHeight, tabR, Math.PI, 0); ctx.lineTo(centerX + tabR, centerY - artH); ctx.stroke();
-    ctx.save(); ctx.translate(bodyX + artW, centerY); ctx.rotate(Math.PI); ctx.drawImage(creature.image, 0, 0, artW, artH); ctx.restore();
-    ctx.drawImage(creature.image, bodyX, centerY, artW, artH);
-    ctx.beginPath(); ctx.moveTo(centerX - tabR, centerY + artH); ctx.lineTo(centerX - tabR, y + h - tabHeight); ctx.arc(centerX, y + h - tabHeight, tabR, Math.PI, 0, true); ctx.lineTo(centerX + tabR, centerY + artH); ctx.stroke();
+    ctx.beginPath(); ctx.arc(centerX, y + tabHeight, tabR, Math.PI, 0); ctx.lineTo(centerX + tabR, centerY - artH - FOLD_CLEARANCE); ctx.stroke();
+    ctx.save(); ctx.translate(bodyX + artW, centerY - FOLD_CLEARANCE); ctx.rotate(Math.PI); ctx.drawImage(creature.image, 0, 0, artW, artH); ctx.restore();
+    ctx.save(); ctx.translate(bodyX + artW, centerY + FOLD_CLEARANCE); ctx.scale(-1, 1); ctx.drawImage(creature.image, 0, 0, artW, artH); ctx.restore();
+    ctx.beginPath(); ctx.moveTo(centerX - tabR, centerY + artH + FOLD_CLEARANCE); ctx.lineTo(centerX - tabR, y + h - tabHeight); ctx.arc(centerX, y + h - tabHeight, tabR, Math.PI, 0, true); ctx.lineTo(centerX + tabR, centerY + artH + FOLD_CLEARANCE); ctx.stroke();
     ctx.setLineDash([1.5, 1.2]); ctx.beginPath(); ctx.moveTo(x, centerY); ctx.lineTo(x + w, centerY); ctx.stroke(); ctx.restore();
   }
 
