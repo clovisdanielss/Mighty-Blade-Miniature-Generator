@@ -6,7 +6,8 @@ Static browser application for creating scale-aware, foldable paper miniatures o
 
 - Import multiple PNG, JPEG, or WebP creature images.
 - Mighty Blade size presets plus custom printed height in millimetres.
-- Exact 180-degree mirrored artwork for folding.
+- Rotated upper artwork and horizontally mirrored lower artwork for correct folding.
+- A small clear margin keeps creature heads away from the fold line.
 - Semicircular attachment tabs and separate circular slotted bases.
 - A4 portrait or landscape preview.
 - Immediate overflow validation when a miniature or base no longer fits.
@@ -28,7 +29,7 @@ Run the orientation regression check with:
 node tests/orientation.test.mjs
 ```
 
-The PDF invariant is: the generated 180-degree copy is placed above the fold line, while the untouched uploaded image is placed below it.
+The PDF invariant is: the 180-degree copy is placed above the fold line, the horizontally mirrored copy is placed below it, and both keep a clear margin from the fold.
 
 ## Project structure
 
