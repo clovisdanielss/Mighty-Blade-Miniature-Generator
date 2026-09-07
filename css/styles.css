@@ -88,7 +88,15 @@ input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 2px r
 .remove:hover { color: var(--danger); }
 
 .sheet-settings { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); }
-.settings-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 12px; }
+.settings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 10px; margin-top: 12px; }
+.scale-reference { margin-top: 16px; padding: 14px; border: 1px solid #39434c; border-radius: 4px; background: #12171c; }
+.scale-reference h4 { margin: 0; font-size: .9rem; color: #d7dee5; }
+.scale-reference p { margin-top: 4px; color: var(--muted); font-size: .8rem; }
+.scale-table { display: grid; grid-template-columns: repeat(5, minmax(90px, 1fr)); gap: 7px; margin-top: 12px; }
+.scale-table span { display: grid; gap: 2px; padding: 8px; border: 1px solid #303943; border-radius: 3px; background: #0e1216; }
+.scale-table b { color: #d5dde5; font-size: .75rem; }
+.scale-table em { color: var(--accent); font-size: .86rem; font-style: normal; font-weight: 800; }
+.scale-table small { color: #7f8b96; font-size: .68rem; }
 .preview-panel { padding: 22px; min-width: 0; }
 .status { margin: 16px 0; padding: 10px 12px; border: 1px solid; border-radius: 4px; font-size: .88rem; }
 .status.neutral { color: #aeb8c2; border-color: #39434c; background: #12171c; }
@@ -115,5 +123,6 @@ input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 2px r
   .creature-card { grid-template-columns: 58px 1fr; }
   .thumb { width: 58px; height: 76px; }
   .creature-fields, .settings-grid { grid-template-columns: 1fr; }
+  .scale-table { grid-template-columns: repeat(2, 1fr); }
   .canvas-shell { min-height: 320px; padding: 10px; }
 }
