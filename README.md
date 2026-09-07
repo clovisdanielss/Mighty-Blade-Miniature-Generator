@@ -15,15 +15,10 @@ Static browser application for creating scale-aware, foldable paper miniatures o
 
 ## Running locally
 
-Serve the `dist` directory with any static HTTP server. For example:
+Open `index.html` directly in your browser. No installation, local server,
+Python command, build process, or internet connection is required.
 
-```bash
-python3 -m http.server 8080 --directory dist
-```
-
-Then open `http://localhost:8080`.
-
-PDF generation uses the browser build of jsPDF from a CDN, so the first load requires an internet connection.
+The PDF writer is implemented in the project's local JavaScript.
 
 ## Validation
 
@@ -38,10 +33,9 @@ The PDF invariant is: the generated 180-degree copy is placed above the fold lin
 ## Project structure
 
 ```text
-dist/
-  index.html
-  css/styles.css
-  js/app.js
+index.html
+css/styles.css
+js/app.js
 ```
 
 ## License
