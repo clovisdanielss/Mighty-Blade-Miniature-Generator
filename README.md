@@ -6,8 +6,9 @@ Static browser application for creating scale-aware, foldable paper miniatures o
 
 - Import multiple PNG, JPEG, or WebP creature images.
 - Mighty Blade size presets plus custom printed height in millimetres.
+- Visible 1:50 scale reference for comparing creature sizes consistently.
 - Rotated upper artwork and horizontally mirrored lower artwork for correct folding.
-- A small clear margin keeps creature heads away from the fold line.
+- Configurable global clearance keeps creature heads away from the fold line.
 - Semicircular attachment tabs and separate circular slotted bases.
 - A4 portrait or landscape preview.
 - Immediate overflow validation when a miniature or base no longer fits.
